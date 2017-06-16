@@ -14,7 +14,7 @@ install(TARGETS mosquittopp RUNTIME DESTINATION "${BINDIR}" LIBRARY DESTINATION 
 
 if(ANDROID)
 	file(COPY mosquittopp.h DESTINATION ${INCLUDEDIR})
-else
+else(ANDROID)
 	install(FILES mosquittopp.h DESTINATION "${INCLUDEDIR}")
 endif(ANDROID)
 

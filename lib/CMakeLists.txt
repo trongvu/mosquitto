@@ -94,7 +94,7 @@ install(TARGETS libmosquitto RUNTIME DESTINATION "${BINDIR}" LIBRARY DESTINATION
 
 if(ANDROID)
 	file(COPY mosquitto.h DESTINATION ${INCLUDEDIR})
-else
+else(ANDROID)
 	install(FILES mosquitto.h DESTINATION "${INCLUDEDIR}")
 endif(ANDROID)
 
