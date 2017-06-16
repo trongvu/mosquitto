@@ -11,7 +11,12 @@ set_target_properties(mosquittopp PROPERTIES
 	SOVERSION 1
 )
 install(TARGETS mosquittopp RUNTIME DESTINATION "${BINDIR}" LIBRARY DESTINATION "${LIBDIR}")
-install(FILES mosquittopp.h DESTINATION "${INCLUDEDIR}")
+
+if(ANDROID)
+	file(COPY mosquittopp.h DESTINATION ${INCLUDEDIR})
+else
+	install(FILES mosquittopp.h DESTINATION "${INCLUDEDIR}")
+endif(ANDROID)
 
 if (UNIX)
 	install(CODE "EXEC_PROGRAM(/sbin/ldconfig)")
